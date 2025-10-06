@@ -194,7 +194,7 @@ app.get("/api/public-key", async (req, res) => {
 });
 
 // secure POST
-app.post("/api/secure-post", async (req, res) => {
+app.post("/api/secure", async (req, res) => {
   try {
     // optional: rate limit / auth checks here
     const { clientPublicKeyJwk, payload, version } = req.body;
