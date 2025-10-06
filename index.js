@@ -109,8 +109,8 @@ async function decrypt(sharedKey, payload) {
 
 // --- GET public key ---
 app.get("/api/public-key", async (req, res) => {
-  const token = getAccessToken(req);
-  if (!token) return res.status(401).json({ error: "Unauthorized" });
+  // const token = getAccessToken(req);
+  // if (!token) return res.status(401).json({ error: "Unauthorized" });
 
   const { publicJwk } = await getServerKeys();
   res.json({ serverPublicKeyJwk: publicJwk });
@@ -119,7 +119,7 @@ app.get("/api/public-key", async (req, res) => {
 // --- Secure POST ---
 app.post("/api/secure-post", async (req, res) => {
   const token = getAccessToken(req);
-  if (!token) return res.status(401).json({ error: "Unauthorized" });
+  // if (!token) return res.status(401).json({ error: "Unauthorized" });
 
   const { clientPublicKeyJwk, payload } = req.body;
   if (!clientPublicKeyJwk || !payload)
